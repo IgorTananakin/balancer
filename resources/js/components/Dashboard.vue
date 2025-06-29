@@ -221,7 +221,7 @@ export default {
 </script>
 
 <style scoped>
-/* Добавляем новые стили для элементов управления */
+
 .transactions__controls {
   display: flex;
   align-items: center;
@@ -236,7 +236,7 @@ export default {
   font-size: 14px;
 }
 
-/* Остальные стили остаются без изменений */
+
 .dashboard {
   max-width: 800px;
   margin: 0 auto;

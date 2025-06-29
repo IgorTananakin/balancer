@@ -10,12 +10,12 @@ use Illuminate\Support\Facades\Hash;
 class CreateUserCommand extends Command
 {
     protected $signature = 'user:create 
-                            {name : User name}
-                            {email : User email}
-                            {password : User password}
-                            {--balance=0 : Initial balance}';
+                            {name : Имя пользователя}
+                            {email : Email пользователя}
+                            {password : Пароль пользователя}
+                            {--balance=0 : Начальный баланс}';
     
-    protected $description = 'Create a new user with optional initial balance';
+    protected $description = 'Создать нового пользователя с начальным балансом';
 
     public function handle()
     {
@@ -30,6 +30,6 @@ class CreateUserCommand extends Command
             'amount' => $this->option('balance'),
         ]);
 
-        $this->info("User {$user->name} created successfully with balance: {$this->option('balance')}!");
+        $this->info("Пользователь {$user->name} успешно создан с балансом: {$this->option('balance')}!");
     }
 }

@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <!-- Заменяем Dashboard на router-view -->
     <router-view :user-email="userEmail" :is-history-page="isHistoryPage" />
   </div>
 </template>
@@ -19,7 +18,6 @@ export default {
 </script>
 
 <style>
-/* Базовые стили приложения */
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

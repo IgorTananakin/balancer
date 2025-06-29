@@ -10,26 +10,30 @@ use Illuminate\Console\Command;
 class BalanceAddCommand extends Command
 {
     protected $signature = 'balance:add 
-                            {email : User email}
-                            {amount : Amount to add}
-                            {--description= : Transaction description}';
+                            {email : Email пользователя}
+                            {amount : Сумма для пополнения}
+                            {--description= : Описание транзакции}';
     
-    protected $description = 'Add amount to user balance';
+    protected $description = 'Пополнить баланс пользователя';
 
     public function handle()
     {
         $user = User::where('email', $this->argument('email'))->firstOrFail();
         
-        $balance = Balance::firstOrCreate(['user_id' => $user->id], ['amount' => 0]);
+        $balance = Balance::firstOrCreate(
+            ['user_id' => $user->id], 
+            ['amount' => 0]
+        );
+        
         $balance->increment('amount', $this->argument('amount'));
         
         Transaction::create([
             'user_id' => $user->id,
             'amount' => $this->argument('amount'),
             'type' => 'credit',
-            'description' => $this->option('description') ?? 'Balance top up',
+            'description' => $this->option('description') ?? 'Пополнение баланса',
         ]);
 
-        $this->info("Added {$this->argument('amount')} to {$user->name}'s balance. New balance: {$balance->amount}");
+        $this->info("На баланс пользователя {$user->name} добавлено {$this->argument('amount')}. Текущий баланс: {$balance->amount}");
     }
 }

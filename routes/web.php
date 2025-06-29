@@ -27,13 +27,13 @@ Route::get('/login', function () {
 Route::get('/history/{email}', function ($email) {
     return view('app', [
         'userEmail' => $email,
-        'isHistoryPage' => true, // Флаг что это страница истории
+        'isHistoryPage' => true, // Флаг страница истории
         'isLoginPage' => false
     ]);
 })->where('email', '.*');
 
 Route::get('/{email?}', function ($email = null) {
-    // Если email не указан, используем дефолтный
+    // заглушка не забыть убрать
     if (!$email) {
         $email = 'ivan@example.com';
     }

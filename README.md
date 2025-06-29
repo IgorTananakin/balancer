@@ -22,12 +22,14 @@ git clone https://github.com/IgorTananakin/balancer
 ```
 
 ### 2. Настройка окружения
+```bash
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=userbalancer
 DB_USERNAME=root
 DB_PASSWORD=
+```
 
 ### 3. Установка зависимостей
 ```bash
@@ -45,7 +47,10 @@ php artisan key:generate
 php artisan migrate
 ```
 
-### 6. Сборка фронтенда
+### 6. Конфигурация для vite.config.js
+- не забыть подставить домен
+
+### 7. Сборка фронтенда
 ```bash
 npm run build
 ```

@@ -11,10 +11,10 @@ export default defineConfig({
         vue(),
     ],
     server: {
-        host: 'balanсer', // Указываем ваш домен
+        host: 'balanсer', // Указать домен
         cors: true, // Разрешаем CORS
         hmr: {
-            host: 'balanсer', // Hot Module Replacement тоже на ваш домен
+            host: 'balanсer', // Указать домен
         },
     },
     resolve: {

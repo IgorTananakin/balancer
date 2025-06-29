@@ -18,13 +18,17 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/login', function () {
-    return view('app', ['isLoginPage' => true]);
+    return view('app', [
+        'isLoginPage' => true,
+        'isHistoryPage' => false
+    ]);
 });
 
 Route::get('/history/{email}', function ($email) {
     return view('app', [
         'userEmail' => $email,
-        'isHistoryPage' => true // Флаг что это страница истории
+        'isHistoryPage' => true, // Флаг что это страница истории
+        'isLoginPage' => false
     ]);
 })->where('email', '.*');
 
@@ -33,7 +37,7 @@ Route::get('/{email?}', function ($email = null) {
     if (!$email) {
         $email = 'ivan@example.com';
     }
-    return view('app', ['userEmail' => $email, 'isHistoryPage' => false]);
+    return view('app', ['userEmail' => $email, 'isHistoryPage' => false, 'isLoginPage' => false]);
 })->where('email', '.*'); // Разрешаем любые символы 
 
 // Route::get('/{any?}', function () {

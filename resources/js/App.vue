@@ -11,7 +11,8 @@ export default {
   data() {
     return {
       userEmail: document.getElementById('app')?.dataset?.userEmail || 'ivan@example.com',
-      isHistoryPage: document.getElementById('app')?.dataset?.isHistoryPage === 'true'
+      isHistoryPage: document.getElementById('app')?.dataset?.isHistoryPage === 'true',
+      isLoginPage: document.getElementById('app')?.dataset?.isLoginPage === 'true'
     }
   }
 }

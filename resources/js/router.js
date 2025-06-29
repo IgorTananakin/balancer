@@ -1,8 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Dashboard from './components/Dashboard.vue'
 import History from './components/History.vue'
+import Login from './components/Login.vue'
 
 const routes = [
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
   {
     path: '/:email?',
     name: 'Dashboard',

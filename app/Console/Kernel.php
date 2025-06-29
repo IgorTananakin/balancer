@@ -13,6 +13,14 @@ class Kernel extends ConsoleKernel
         Commands\BalanceAddCommand::class,
         Commands\BalanceSubtractCommand::class,
     ];
+
+    protected $middlewareGroups = [
+        'api' => [
+            // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+            // 'throttle:api',
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        ],
+    ];
     /**
      * Define the application's command schedule.
      *

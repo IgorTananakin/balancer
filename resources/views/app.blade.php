@@ -8,8 +8,9 @@
 </head>
 <body>
     <div id="app"
-        data-user-email="{{ $userEmail }}"
+        data-user-email="{{ $userEmail ?? '' }}"
         data-is-history-page="{{ $isHistoryPage ? 'true' : 'false' }}"
+        data-is-login-page="{{ $isLoginPage ? 'true' : 'false' }}"
     ></div>
 
     @vite('resources/js/app.js')

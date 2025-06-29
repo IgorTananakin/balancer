@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BalanceController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthController;
+use App\Models\User;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +20,16 @@ use App\Http\Controllers\UserController;
 */
 
 // Управление пользователями
-Route::apiResource('users', UserController::class);
+// Route::apiResource('users', UserController::class);
+
+Route::get('/users/check', [AuthController::class, 'checkUser']);
+
+// Для отладки (можно удалить после тестов)
+Route::get('/debug/users', function() {
+    return response()->json([
+        'users' => \App\Models\User::all()->pluck('email')
+    ]);
+});
 
 // Управление балансом
 Route::prefix('balance')->group(function () {

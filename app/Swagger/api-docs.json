@@ -1,0 +1,58 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "User Balance API",
+        "description": "API для управления балансом пользователей",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/balance/{email}": {
+            "get": {
+                "tags": [
+                    "Balance"
+                ],
+                "summary": "Получить текущий баланс пользователя",
+                "description": "Проверка баланса",
+                "operationId": "424b5f6c6117e17e8a64fb5ebae96b4e",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "path",
+                        "description": "Email пользователя",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешный запрос",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "balance": {
+                                            "type": "number",
+                                            "example": 1000
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Пользователь не найден"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Balance",
+            "description": "Операции с балансом"
+        }
+    ]
+}

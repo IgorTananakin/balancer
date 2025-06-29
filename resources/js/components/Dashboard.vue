@@ -71,6 +71,16 @@ import axios from 'axios';
 
 export default {
   name: 'Dashboard',
+  props: {
+    userEmail: {
+      type: String,
+      required: true
+    },
+    isHistoryPage: {
+      type: Boolean,
+      default: false
+    }
+  },
   data() {
     return {
       balance: 0,

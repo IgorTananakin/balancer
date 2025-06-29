@@ -17,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+Route::get('/login', function () {
+    return view('app', ['isLoginPage' => true]);
+});
+
 Route::get('/history/{email}', function ($email) {
     return view('app', [
         'userEmail' => $email,

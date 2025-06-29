@@ -1,30 +1,25 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import Dashboard from '../components/Dashboard.vue';
-import History from '../components/History.vue';
-
-Vue.use(VueRouter);
+import { createRouter, createWebHistory } from 'vue-router'
+import Dashboard from './components/Dashboard.vue'
+import History from './components/History.vue'
 
 const routes = [
+  {
+    path: '/:email?',
+    name: 'Dashboard',
+    component: Dashboard,
+    props: true
+  },
   {
     path: '/history/:email',
     name: 'History',
     component: History,
     props: true
-  },
-  {
-    path: '/:email?',
-    name: 'Dashboard',
-    component: Dashboard,
-    props: (route) => ({
-      userEmail: route.params.email || 'ivan@example.com'
-    })
   }
-];
+]
 
-const router = new VueRouter({
-  mode: 'history',
+const router = createRouter({
+  history: createWebHistory(),
   routes
-});
+})
 
-export default router;
+export default router
